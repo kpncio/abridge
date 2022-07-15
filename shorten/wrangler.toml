@@ -1,0 +1,7 @@
+name = "shorten"
+main = "src/index.js"
+compatibility_date = "2022-07-14"
+
+kv_namespaces = [
+  { binding = "kv", id = "d38b3731059d49868ea6c980f519dae9" }
+]
