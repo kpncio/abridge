@@ -4,11 +4,11 @@
 async function handleRequest(request) {
 	function validurl(string) {
 		var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-    return (res !== null)
+    	return (res !== null)
 	}
 
 	try {
-		var long = decodeURIComponent(/.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/.exec(request.url)[1].replace('/', '')).replace('shorten/', '');
+		var long = decodeURIComponent(new URL(request.url).pathname.substring(1)).replace('shorten/', '');
 
 		if (long === 'wp-admin/' || long === 'favicon.ico') {
 			return new Response('Bad request...', {

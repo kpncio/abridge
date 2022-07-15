@@ -3,7 +3,7 @@
 
 async function handleRequest(request) {
 	try {
-		var short = /.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/.exec(request.url)[1].replace(/[^\w\s]/gi, '');
+		var short = new URL(request.url).pathname.substring(1);
 	} catch {
 		return Response.redirect('https://www.kpnc.io/', 301);
 	}
