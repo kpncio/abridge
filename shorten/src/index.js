@@ -4,7 +4,8 @@
 async function handleRequest(request) {
 	function validurl(string) {
 		var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-    	return (res !== null)
+
+    	return (res !== null);
 	}
 
 	try {
@@ -50,7 +51,7 @@ async function handleRequest(request) {
 		}
 	}
 
-	return new Response('Success: ' + short + '\n' + 'Logged: ' + ip, {
+	return new Response('Success: ' + short + '\n' + 'Logged: ' + organization, {
 		headers: { 'content-type': 'text/plain', 'status' : 200 },
 	})
 }
