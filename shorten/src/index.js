@@ -11,20 +11,14 @@ async function handleRequest(request) {
 	try {
 		var long = decodeURIComponent(new URL(request.url).pathname.substring(1)).replace('shorten/', '');
 
-		// const blocked = [ 'Google Cloud', 'Linode LLC', 'DigitalOcean LLC' ];
-		// blocked.forEach(organization => {
-		// 	if (request.cf.asOrganization == organization) {
-		// 		return new Response('Bad request...', {
-		// 			headers: { 'content-type': 'text/plain', 'status' : 400 },
-		// 		})
-		// 	}
-		// });
-
-		// if (long === 'wp-admin/' || long === 'favicon.ico') {
-		// 	return new Response('Bad request...', {
-		// 		headers: { 'content-type': 'text/plain', 'status' : 400 },
-		// 	})
-		// }
+		const blocked = [ 'Google', 'Linode', 'Digital Ocean', 'Cloudflare', 'YANDEX LLC', 'VECTANT' ];
+		blocked.forEach(organization => {
+			if (request.cf.asOrganization == organization) {
+				return new Response('Bad request...', {
+					headers: { 'content-type': 'text/plain', 'status' : 400 },
+				})
+			}
+		});
 	} catch {
 		return new Response('No long...', {
 			headers: { 'content-type': 'text/plain', 'status' : 400 },
