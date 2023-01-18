@@ -1,7 +1,8 @@
 name = "lengthen"
-main = "src/index.js"
-compatibility_date = "2022-07-14"
+main = "index.js"
+compatibility_date = "2023-01-18"
 
-kv_namespaces = [
-  { binding = "kv", id = "d38b3731059d49868ea6c980f519dae9" }
-]
+[[kv_namespaces]]
+  binding = "kv"
+  id = "0c849549d386429a85676ba16ab17b08"
+  preview_id = "0c849549d386429a85676ba16ab17b08"
