@@ -1,0 +1,21 @@
+<h1 class="nosel">
+  <img
+    src="https://content.kpnc.io/img/kpnc/symbol/KPNC-S.webp"
+    alt="KPNC"
+  />
+</h1>
+
+<main class="container">
+  <h2 class="nosel">Shorten URLs:</h2>
+  <h3 class="nosel">⤷ <a (click)="routerLink(['/information'])">See more</a>...</h3>
+  <div class="box">
+    <p class="message" [ngClass]="{'fail': !success, 'succ': success}" *ngIf="message">{{message}}</p>
+    <form class="input nosel">
+      <input ngModel name="url" #url="ngModel" (change)="changed(url)" type="text" id="url" placeholder="https://www.example.com">
+      <button (click)="clicked()">►</button>
+    </form>
+    <p class="disclaimer nosel">
+      This URL shortening service is provided free-of-charge. The creators are not liable for any support or reliability pertaining to the service. The source code to this project can be found in a public <a href="https://github.com/kpncio/shortener">GitHub Repository</a> and is license under the MIT license. For more information check out said repository and see the <a (click)="routerLink(['/information'])">Information</a> page.
+    </p>
+  </div>
+</main>
