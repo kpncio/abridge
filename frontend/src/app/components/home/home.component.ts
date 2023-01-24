@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  loading: boolean = false;
   success: boolean = false;
   message: string = '';
   url: string = '';
@@ -23,6 +24,7 @@ export class HomeComponent {
   }
 
   clicked(): void {
+    this.loading = true;
     this.message = '';
 
     interface shorten {
@@ -33,7 +35,7 @@ export class HomeComponent {
     const url = 'https://app.kpnc.io/shorten/' + encodeURIComponent(this.url);
 
     this.fetch.request(url).subscribe((response: shorten) => {
-      console.log(response);
+      this.loading = false;
 
       this.success = response.success;
       this.message = response.message;
