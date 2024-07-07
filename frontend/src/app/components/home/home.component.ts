@@ -39,6 +39,18 @@ export class HomeComponent {
 
       this.success = response.success;
       this.message = response.message;
+
+      if (this.success) {
+        this.copying('https://' + this.message.slice(-13));
+      }
+    });
+  }
+
+  copying(text: string): void {
+    navigator.clipboard.writeText(text).then(function() {
+      console.log(`Copied "${text}" to the clipboard...`);
+    }, function(err) {
+      console.error('Error: Cannot copy text to clipboard: ', err);
     });
   }
 }
