@@ -2,7 +2,7 @@
   "name": "shorten",
   "version": "0.0.0",
   "devDependencies": {
-    "wrangler": "2.0.21"
+    "wrangler": "3.80.3"
   },
   "private": true,
   "scripts": {
